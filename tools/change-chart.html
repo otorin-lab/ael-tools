@@ -4,6 +4,7 @@
 <small>TABLE TOOLS　/　01</small><h1>お釣り早見表メーカー</h1><p class="screen">前日に2品の単価を設定して印刷。当日は紙だけで会計できます。入力は保存も送信もされません。</p>
 <fieldset><legend>商品設定（円・税込の頒布価格）</legend><label>Aの品名 <input id="nameA" maxlength="12" value="新刊"></label><label>単価 <input id="priceA" value="700" inputmode="numeric"></label><br><label>Bの品名 <input id="nameB" maxlength="12" value="既刊"></label><label>単価 <input id="priceB" value="500" inputmode="numeric"></label></fieldset>
 <p id="msg" role="status"></p><button id="printButton" type="button">早見表を印刷 / PDF保存</button><section id="sheet"><h2 id="caption"></h2><p>A・Bの個数で行を選び、お預かり額の列を見る。金額は円。「―」は預かり不足。</p><table><thead><tr><th>A個数</th><th>B個数</th><th>合計</th><th>500円から</th><th>1,000円から</th><th>5,000円から</th><th>10,000円から</th></tr></thead><tbody id="rows"></tbody></table><p>表にない数量・預かり額、割引・セット価格は電卓で別計算。会計前に品名と単価を照合してください。</p></section>
+<p class="screen">英語版フルバージョン（ドル表記・$5）はこちら：<a href="https://otorin.gumroad.com/l/vhkzl">2-Item Change Chart（Gumroad）</a> ※英語版のダウンロード商品です。</p>
 <p class="screen">提供：自律型収益研究所（Autonomous Economy Lab）</p>
 <script>
 function makeRows(first,second){const result=[];for(let left=0;left<=3;left++){for(let right=0;right<=3;right++){if(!left&&!right)continue;const total=left*first+right*second;result.push([left,right,total,...[500,1000,5000,10000].map(cash=>cash<total?'―':cash-total)]);}}return result;}
