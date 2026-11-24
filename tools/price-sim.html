@@ -1,6 +1,6 @@
-<!doctype html><html lang="ja"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ハンドメイド価格設定シミュレーター｜材料費と時間から適正価格を出す</title>
+<!doctype html><html lang="ja"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ハンドメイド価格設定シミュレーター | 材料費と時間から適正価格を出す</title>
 <style>*{box-sizing:border-box}body{max-width:760px;margin:28px auto;padding:0 18px;color:#263238;font:16px/1.6 system-ui,sans-serif}h1{margin:2px 0 10px}small{letter-spacing:.12em}fieldset{border:1px solid #a7b8ba;padding:12px;margin-bottom:14px}label{display:inline-block;margin:4px 10px 4px 0}input{width:7em;padding:5px}table{border-collapse:collapse;width:100%}th,td{border-bottom:1px solid #b6c2c4;padding:5px 8px;text-align:right}th{text-align:left;font-weight:600}.big{font-size:28px;font-weight:700}#msg{color:#963a19}</style>
-<nav><a href="../index.html" style="color:#175c66">← 自律型収益研究所 無料ツール トップへ</a></nav>
+<nav><a href="../index.html" style="color:#175c66">← 自律型収益研究所 無料ツール トップへ</a>a></nav>
 <small>TABLE TOOLS / 02</small><h1>ハンドメイド価格設定シミュレーター</h1>
 <p>材料費と作業時間から、「赤字にならない価格」と「利益が残る価格」を計算します。入力は保存も送信もされません。</p>
 <fieldset><legend>原価</legend>
@@ -16,19 +16,21 @@
 </fieldset>
 <p id="msg" role="status"></p>
 <section id="result">
-<p>推奨販売価格（10円単位に切り上げ）<br><span class="big" id="price">―</span></p>
+<p>推奨販売価格（10円単位に切り上げ）<br><span class="big" id="price">―</span>span></p>
 <table>
-<tr><th>原価の合計（材料費＋梱包費＋人件費）</th><td id="cost">―</td></tr>
-<tr><th>うち人件費</th><td id="labor">―</td></tr>
-<tr><th>販売手数料（推奨価格×料率）</th><td id="feeAmt">―</td></tr>
-<tr><th>残る利益</th><td id="profit">―</td></tr>
-<tr><th>利益率（価格に対して）</th><td id="marginActual">―</td></tr>
+<tr><th>原価の合計（材料費＋梱包費＋人件費）</th><td id="cost">―</td>td></tr>
+<tr><th>うち人件費</th><td id="labor">―</td>td></tr>
+<tr><th>販売手数料（推奨価格×料率）</th>th><td id="feeAmt">―</td>td></tr>
+<tr><th>残る利益</th><td id="profit">―</td>td></tr>
+<tr><th>利益率（価格に対して）</th><td id="marginActual">―</td>td></tr>
 </table>
 <p>送料を購入者が別途払う設定か、価格に含めるかは販売先の設定に合わせてください。この計算には送料・税金は含まれていません。</p>
-</section>
+</section>section>
+<p class="screen">関連する有料ツール：英語版お釣り早見表（ドル表記・$5）はこちら：<a href="https://otorin.gumroad.com/l/vhkzl">2-Item Change Chart（Gumroad）</a>a></p>
 <p>提供：自律型収益研究所（Autonomous Economy Lab）</p>
 <script>
 function calc(m,p,min,h,fee,mar){const labor=Math.round(min*h/60);const cost=m+p+labor;const denom=1-fee/100-mar/100;if(denom<=0)return null;const raw=cost/denom;const price=Math.ceil(raw/10)*10;const feeAmt=Math.round(price*fee/100);const profit=price-cost-feeAmt;return{labor,cost,price,feeAmt,profit,marginActual:(price?profit/price*100:0)};}
-function refresh(){const g=id=>document.getElementById(id);const v=id=>Number(g(id).value);const vals=['material','packing','minutes','hourly','fee','margin'].map(v);const ok=vals.every(x=>Number.isFinite(x)&&x>=0)&&v('fee')+v('margin')<100;g('result').hidden=!ok;g('msg').textContent=ok?'':'すべての欄に0以上の数字を入れ、手数料率と目標利益率の合計を100未満にしてください。';if(!ok)return;const r=calc(...vals);const fmt=n=>n.toLocaleString('ja-JP')+'円';g('price').textContent=fmt(r.price);g('cost').textContent=fmt(r.cost);g('labor').textContent=fmt(r.labor);g('feeAmt').textContent=fmt(r.feeAmt);g('profit').textContent=fmt(r.profit);g('marginActual').textContent=r.marginActual.toFixed(1)+'％';}
+function refresh(){const g=id=>document.getElementById(id);const v=id=>Number(g(id).value);const vals=['material','packing','minutes','hourly','fee','margin'].map(v);const ok=vals.every(x=>Number.isFinite(x)&&x>=0)&&(v('fee')+v('margin')<100);g('result').hidden=!ok;g('msg').textContent=ok?'':'すべての欄に0以上の数字を入れ、手数料率と目標利益率の合計を100未満にしてください。';if(!ok)return;const r=calc(...vals);const fmt=n=>n.toLocaleString('ja-JP')+'円';g('price').textContent=fmt(r.price);g('cost').textContent=fmt(r.cost);g('labor').textContent=fmt(r.labor);g('feeAmt').textContent=fmt(r.feeAmt);g('profit').textContent=fmt(r.profit);g('marginActual').textContent=r.marginActual.toFixed(1)+'%';}
 document.addEventListener('input',refresh);refresh();
-</script></html>
+</script></html>html>
+</script></p></p></th></th></tr></tr></th></th></tr></table></p></p></label></label></legend></fieldset></p></h1></small></nav></style></title>
